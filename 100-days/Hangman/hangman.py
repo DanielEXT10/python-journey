@@ -1,16 +1,20 @@
 import random
+import hangman_words
+import hangman_art
 
-word_list = ["elefant", "lion", "jellyfish"]
+
 # TODO-1 - Randomly choose a word from the word_list and assign it to a a variable called chosen_word
 
-chosen_word = random.choice(word_list).lower()
+chosen_word = random.choice(hangman_words.animals).lower()
 
 place_holder = "_" * len(chosen_word)
 life_count = 5
 
+print(hangman_art.intro)
 print(place_holder)
 
-
+incorrect_letter =[]
+correct_letter = []
 
 # TODO-2 - Ask the user to guess a letter and assign the answer to a variable called guess
 while place_holder != chosen_word and life_count > 0:
@@ -30,7 +34,10 @@ while place_holder != chosen_word and life_count > 0:
 
     else:
         life_count -= 1
+        incorrect_letter.append(guess)
         print(f"You lost 1 life; Remaining lives: {life_count}")
+        print(hangman_art.hangman_stages[life_count])
+
 
 if place_holder == chosen_word:
     print("You won madafaka! 🎉")
