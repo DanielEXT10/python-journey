@@ -10,7 +10,7 @@ def mutate(a_list):
         new_item += random.randint(1,3)
         new_item = maths.add(new_item,item)
 
-    b_list.append(new_item)
+        b_list.append(new_item)
     print(b_list)
 
-    mutate([1,2,3,4,5,8,13])
+mutate([1,2,3,4,5,8,13])
